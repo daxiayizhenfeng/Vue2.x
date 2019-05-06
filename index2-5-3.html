@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2-5-1</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<div id="app">
+    {{msg}}
+    <div v-for="item in list">
+        <div v-show="item.age > 29" v-bind:style="styleMsg" v-bind:class="[ 'active', 'add', 'more', {'another': item.age <30} ]">
+            {{item.name}}
+        </div>
+    </div>
+</div>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            msg: 'Hello Vue!!',
+            styleMsg: {
+                color:'red',
+                textShadow:'0 0 5px green',
+            },
+            list: [{
+                name: '小张',
+                age: 20
+            },{
+                name: '小李',
+                age: 30
+            }]
+        }
+    })
+</script>
+</body>
+</html>
